@@ -54,4 +54,27 @@ function findLongestWordLength(str) {
   }    
 console.log(findLongestWordLength("I am feeling so much more comfortable with JavaScript...yaay!...woohoo!"))
 
+/* Return Largest Numbers in Arrays
 
+  create an array to store results
+  create outer loop to iterate thru outer array 
+  create a bignum variable to hold largest number for each array and set to 1st element in 1st subarray. Keep outside inner loop so wont be reasigned until larger # found. 
+  create an inner loop to iterate over elements in subarrys
+  compare elements within subarrays are larger than currently stored largest number. if so, bignum variable
+  after inner loop, save largest number in corresponding positions inside results array. 
+  return results array
+ */
+function largestOfFour(arr) {
+  var results = [];
+  for (var i = 0; i < arr.length; i++) {
+    var largeNumber = arr[i][0];
+    for (var j = 1; j < arr[i].length; j++) {
+      if (arr[i][j] > largeNumber) {
+        largeNumber = arr[i][j];
+      }
+    }
+    results[i] = largeNumber;
+  }
+  return results;
+}
+console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]));
