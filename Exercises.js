@@ -83,12 +83,14 @@ console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [10
 
 The slice() method returns the selected elements in an array, as a new array object. 
 1st parameter is the starting index, 2nd parameter is the ending index but does not include, the given end argument. 
-Excluding a parameter will copy everything from the starting index, ie  str.slice()
+Excluding a parameter will copy everything from the starting index, ie  str.slice().
+
 Substracting the length of str and the length of target equals the last remaining characters equivalent to the target's length.
 Meaning if the target argument has 3 letters, slice will return the last 3 letters of the str argument
 
 === checks to see if the last letter(s) in str match last letter(s) in target
- */
+
+*/
 
 function confirmEnding(str, target) {
   return str.slice(str.length - target.length) === target
@@ -96,4 +98,99 @@ function confirmEnding(str, target) {
 }
 console.log(confirmEnding("As the world turns into dust", "dust"))
 
+//Can also use endsWith() method
+function confirmEnding2(str, target) {
+  return str.endsWith(target)
+}
+console.log(confirmEnding2("As the world turns into dust", "dustZ"))
 
+/*
+Repeat a variable into one single string based upon a certain amount of times. 
+
+Create an empty string variable to store the accumulated variable 
+Use a loop to repeat the code as many times needed based upon num
+Add the string to the accumulated variable
+
+*/
+function repeatStringNumTimes(str, num) {
+  let repeatStr = ''
+  for(let i=0; i<num; i++){
+    repeatStr += str
+  }
+  return repeatStr
+}
+console.log(repeatStringNumTimes("abc", 3))
+
+//can also use repeat() method
+console.log('abc'.repeat(3))
+
+/* Truncate a string (first argument) if it is longer than the given maximum string length (second argument). 
+Return the truncated string with a ... ending.
+
+Strings are immutable in JavaScript so will need a new variable to store the truncated string.
+Can use the slice() method to return new variable, specify where to start and where to stop (can use num for stop argument)
+Create an if statement that checks whether str length is greater than num. If so, use slice method to truncate str,
+starting at position 0 and ending with position num. Also need to append '...' to end of string. 
+Else statement returns str value if str length is less than num
+*/
+function truncateString(str, num) {
+  if (str.length > num) {
+    return str.slice(0,num) +'...'
+  } else return str    
+}
+console.log(truncateString("Hello..is it me your looking for?", 8))
+
+/*Using modulus to check remainder*/
+function findElement(arr) {
+  let num = arr
+  for(let i=0; i<arr.length; i++){
+    if(num[i] %2 ===0){
+      return num[i]
+    } else ('undefinded')
+  }
+}
+console.log(findElement([17, 11,3, 141]))
+
+/*
+Similar to modulus exercise but creating a function that looks through an array (first argument) and returns the first element in the 
+array that passes a truth test (second argument). If no element passes the test, return undefined.
+
+So need to return the element from an array that passes a function. Both the function and the array are passed into function 
+findElement(arr, func). Looking through the array can be done with a for loop.
+
+num is passed to the function. Will need to set it to the elements want to check with the function; 
+so set it to each index in array.
+
+The pre-defined function already checks each number, so if it is “true”, return that num.
+If none of the numbers in the array pass the function’s test, return undefined.
+*/
+function findElement2(arr, func) { 
+  let num = 0
+  for (var i = 0; i < arr.length; i++) {
+    num = arr[i] //num will begin at 1st element in array
+    if (func(num)) { //calling func and passing it num. checks each number against condition num % 2 ===0
+      return num    //return num if true
+    }
+  }
+  return undefined
+}
+console.log(findElement2([1, 11,3, 14], num => num % 2 === 0))//array and function defined here and passed as arguments entitled arr and func
+
+
+/*Check if a value is classified as a boolean primitive. Return true or false.
+A JavaScript Boolean represents one of two values: true or false.
+
+Very often, in programming, you will need a data type that can only have one of two values, like
+
+    YES / NO
+    ON / OFF
+    TRUE / FALSE
+
+You can use the Boolean() function to find out if an expression (or a variable) is true:
+Boolean(10 > 9)        // returns true 
+*/
+function booWho(bool) {
+  return typeof bool === 'boolean' //checks if typeof bool is a boolean datatype
+}
+console.log(booWho([null]))
+//booWho(true) returns true, booWho(false) returns true, booWho([1, 2, 3]) returns false. booWho(1) returns false.
