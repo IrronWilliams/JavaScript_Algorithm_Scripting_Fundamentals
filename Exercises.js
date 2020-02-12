@@ -92,6 +92,7 @@ Meaning if the target argument has 3 letters, slice will return the last 3 lette
 
 function confirmEnding(str, target) {
   return str.slice(str.length - target.length) === target
+  
 }
 console.log(confirmEnding("As the world turns into dust", "dust"))
 
