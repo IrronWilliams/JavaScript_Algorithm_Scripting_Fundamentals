@@ -70,11 +70,29 @@ function largestOfFour(arr) {
     var largeNumber = arr[i][0];
     for (var j = 1; j < arr[i].length; j++) {
       if (arr[i][j] > largeNumber) {
-        largeNumber = arr[i][j];
+        largeNumber = arr[i][j]
       }
     }
-    results[i] = largeNumber;
+    results[i] = largeNumber
   }
-  return results;
+  return results
 }
-console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]));
+console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]))
+
+/* Check if a string (first argument, str) ends with the given target string (second argument, target).
+
+The slice() method returns the selected elements in an array, as a new array object. 
+1st parameter is the starting index, 2nd parameter is the ending index but does not include, the given end argument. 
+Excluding a parameter will copy everything from the starting index, ie  str.slice()
+Substracting the length of str and the length of target equals the last remaining characters equivalent to the target's length.
+Meaning if the target argument has 3 letters, slice will return the last 3 letters of the str argument
+
+=== checks to see if the last letter(s) in str match last letter(s) in target
+ */
+
+function confirmEnding(str, target) {
+  return str.slice(str.length - target.length) === target
+}
+console.log(confirmEnding("As the world turns into dust", "dust"))
+
+
