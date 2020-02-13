@@ -85,6 +85,9 @@ The slice() method returns the selected elements in an array, as a new array obj
 1st parameter is the starting index, 2nd parameter is the ending index but does not include, the given end argument. 
 Excluding a parameter will copy everything from the starting index, ie  str.slice().
 
+A negative index can be used, indicating an offset from the end of the sequence. slice(2,-1) extracts the third element through the 
+second-to-last element in the sequence; so starts with 3rd element and slices off or excludes the last element in the array. 
+
 Substracting the length of str and the length of target equals the last remaining characters equivalent to the target's length.
 Meaning if the target argument has 3 letters, slice will return the last 3 letters of the str argument
 
@@ -234,11 +237,59 @@ function titleCase(str) {
 }
 console.log(titleCase("I'm a little tea pot"))
 
+/*
+The splice() method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place.
+parameters = splice(start, deleteCount, items to add)
 
+const months = ['Jan', 'March', 'April', 'June'];
+months.splice(1, 0, 'Feb');
+// inserts at index 1
+console.log(months);
+// expected output: Array ["Jan", "Feb", "March", "April", "June"]
 
+months.splice(4, 1, 'May');
+// replaces 1 element at index 4
+console.log(months);
+// expected output: Array ["Jan", "Feb", "March", "April", "May"]
 
+Following programs copies each element of the first array into the second array in order and inserts 
+elements at index n of the second array.
+*/
 
+function frankenSplice(arr1, arr2, n) { //Approach 1
+  let copyArr = arr2.slice() //using slice() to create copy of original array. this ensure original array will not be mutated; splice() changes array in place
+  for (let i=0; i<arr1.length; i++){ 
+    copyArr.splice(n, 0, arr1[i]) //iterate thru every item in arr1. for each item in arr1 use splice() to insert item into index n of copyArr
+    n++  //increment index n by 1. this ensures every item from arr1 is inserted in copyArr in proper index position 
+  }       
+  return copyArr
+}
+console.log(frankenSplice(['A', 'b', 'c'], ['D', 'E'], 1))
 
+function frankenSplice2(arr1, arr2, n) { //Approach 2
+  let copyArr = arr2.slice() //using slice() to create copy of original array. this ensure original array will not be mutated; splice() changes array in place
+  copyArr.splice(n,0,...arr1) //splice() can be used to add new elements.  using spread syntax to add contents of arr1 into copyArr.  
+                              //using n as starting position (number 5 in copyArr aks arr2) and not deleting any elements, followed by spread operator
+  return arr2
+}
+console.log(frankenSplice2([100, 200, 300], [400, 500], 1))
+
+/*Remove all falsy values from an array. 
+Falsy values in JavaScript are false, null, 0, "", undefined, and NaN.
+*/
+function bouncer(arr) {
+  let newArray = []
+  for (var i = 0; i < arr.length; i++) { //for loop iterates over all elements of arr
+    if (arr[i]) newArray.push(arr[i]) //if statement checks if current element is truthy or falsy. if truthy push element to newArray
+  }
+  return newArray
+}
+console.log(newArray)
+
+//Alternative approach: function that returns a Boolean value which takes a single argument and returns true for truthy value or false for falsy value
+function bouncer(arr) {
+  return arr.filter(Boolean)
+}
 
 /* Summary
 
@@ -246,6 +297,7 @@ charAt()
 .join()
 split('') = separates string into array 
 slice(start, stop) = excl stop position
+splice(start, #items to delete, new items)
 repeat()
 replace('cat', 'dog')
 += (use to accumulate variable)
@@ -259,5 +311,6 @@ tolowerCase()
 map(function(){ do something to each element in array   })
 push()
 length
-
+spread syntax ...
+filter()
 */
