@@ -194,3 +194,70 @@ function booWho(bool) {
 }
 console.log(booWho([null]))
 //booWho(true) returns true, booWho(false) returns true, booWho([1, 2, 3]) returns false. booWho(1) returns false.
+
+/*Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.
+
+The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
+const array1 = [1, 4, 9, 16];
+
+// pass a function to map: function x multiplies each element in the array by 2.  an array with the results are returned
+const map1 = array1.map(x => x * 2);
+
+console.log(map1);
+// expected output: Array [2, 8, 18, 32]
+
+The replace() method returns a new string with some or all matches of a pattern replaced by a replacement. The pattern can be a string 
+or a RegExp, and the replacement can be a string or a function to be called for each match. If pattern is a string, only the first 
+occurrence will be replaced.
+
+const p = 'The quick brown fox jumps over the lazy dog. If the dog reacted, was it really lazy?';
+console.log(p.replace('dog', 'monkey'));
+// expected output: "The quick brown fox jumps over the lazy monkey. If the dog reacted, was it really lazy?"
+
+The String object's charAt() method returns the character at the specified index in a string.
+var str = "HELLO WORLD";
+var res = str.charAt(0); //returns H
+
+const sentence = 'The quick brown fox jumps over the lazy dog.';
+
+const index = 4;
+
+console.log('The character at index ' + index + ' is ' + sentence.charAt(index));
+// expected output: "The character at index 4 is q"
+*/
+function titleCase(str) {
+  let convertToArray = str.toLowerCase().split(" ")  //converts str to all lowercase, then splits elements into an array
+  let result = convertToArray.map(function(val) {    //create result variable applies map method where function applies action to each word in array
+    return val.replace(val.charAt(0), val.charAt(0).toUpperCase()) //uses charAt method which changes every 1st letter of each word in array to upperCase
+  });
+  return result.join(" ")  //returning string using .join()method; which removes the array and converts elements to a string
+}
+console.log(titleCase("I'm a little tea pot"))
+
+
+
+
+
+
+
+/* Summary
+
+charAt()
+.join()
+split('') = separates string into array 
+slice(start, stop) = excl stop position
+repeat()
+replace('cat', 'dog')
++= (use to accumulate variable)
++ (used to concatenate)
+loops 
+functions 
+endsWith()
+reverse()
+toupperCase()
+tolowerCase()
+map(function(){ do something to each element in array   })
+push()
+length
+
+*/
