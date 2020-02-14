@@ -286,6 +286,8 @@ function bouncer(arr) {
 }
 console.log(newArray)
 
+bouncer([7, "ate", "", false, 9])
+
 //Alternative approach: function that returns a Boolean value which takes a single argument and returns true for truthy value or false for falsy value
 function bouncer(arr) {
   return arr.filter(Boolean)
@@ -333,7 +335,19 @@ function getIndexToIns(arr, num) {
 }
 console.log(getIndexToIns([40,50, 4], 14)) //returns 1
 
-
+/*
+Return true if the string in the first element of the array contains all of the letters of the string in the second element of the array.
+indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
+*/
+function mutation(arr) {
+  let test = arr[1].toLowerCase() //make the two strings in the array lowercase. test will hold what we are looking for in target.
+  let target = arr[0].toLowerCase()
+  for (let i = 0; i < test.length; i++) {  //loop through test characters and if any of them are not found return false.
+    if (target.indexOf(test[i]) < 0) return false // <0 used because -1 is returned if index not found, and -1 less than 0
+  }
+  return true //if all characters are found, the loop will finish without returning anything and true is returned.
+}
+console.log(mutation(["Hello", "heYY"]))
 
 
 
@@ -361,5 +375,6 @@ push()
 length
 spread syntax ...
 filter()
-indexOf()
+indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present
+toString()
 */
