@@ -291,6 +291,54 @@ function bouncer(arr) {
   return arr.filter(Boolean)
 }
 
+/* Javascript sort() method in absence of a compareFunction will convert array elements into a string. 
+const array1 = [1, 30, 4, 21, 100000];
+array1.sort();
+console.log(array1);
+// expected output: Array [1, 100000, 21, 30, 4]
+
+To sort numbers and return expected results, the compareFunction
+function compareNumbers(a, b) {
+  return a - b;
+}
+
+The sort method can be conveniently used with function expressions:
+
+var numbers = [4, 2, 5, 1, 3];
+numbers.sort(function(a, b) {
+  return a - b;
+});
+console.log(numbers);
+// [1, 2, 3, 4, 5]
+
+//with arrow function expressions
+let numbers = [4, 2, 5, 1, 3];
+numbers.sort((a, b) => a - b);
+
+Following program returns the lowest index at which a value (second argument) should be inserted into an array (first argument) once it 
+has been sorted. The returned value should be a number.
+*/
+function getIndexToIns(arr, num) {
+  arr.sort(function(a, b) {  //use sort() with the callback function to sort the numbers in ascending order.
+    return a - b
+  })
+
+  for (let a = 0; a < arr.length; a++) { //for loop compares items in array starting from the smallest one. 
+                                        
+    if (arr[a] >= num) return a   //when an item in array is greater than the number being compared 
+                                  //then we return the index as an integer.
+  }
+
+  return arr.length
+}
+console.log(getIndexToIns([40,50, 4], 14)) //returns 1
+
+
+
+
+
+
+
 /* Summary
 
 charAt()
@@ -313,4 +361,5 @@ push()
 length
 spread syntax ...
 filter()
+indexOf()
 */
