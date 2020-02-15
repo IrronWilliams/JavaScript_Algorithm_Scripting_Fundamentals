@@ -342,12 +342,25 @@ indexOf() method returns the first index at which a given element can be found i
 function mutation(arr) {
   let test = arr[1].toLowerCase() //make the two strings in the array lowercase. test will hold what we are looking for in target.
   let target = arr[0].toLowerCase()
-  for (let i = 0; i < test.length; i++) {  //loop through test characters and if any of them are not found return false.
+  for (let i = 0; i < test.length; i++) {  //loop through test characters and if any of them are not found in target return false.
     if (target.indexOf(test[i]) < 0) return false // <0 used because -1 is returned if index not found, and -1 less than 0
   }
   return true //if all characters are found, the loop will finish without returning anything and true is returned.
 }
 console.log(mutation(["Hello", "heYY"]))
+
+/*
+This function splits an array (first argument) into groups the length of size (second argument) and returns them as a 2-dimensional array.
+*/
+function chunkArrayInGroups(arr, size) {
+  let arr2 = [] //creates an empty array that stores pieces/'chunks' of array
+  for (let i = 0; i < arr.length; i += size) {//loop starts at 0, increments by size each time through the loop, and stops when it reaches arr.length.
+    arr2.push(arr.slice(i, i + size))  //using loop to generate numbers to use as indices to slice the array in the right locations.
+                                      //inside loop, create each chunk using arr.slice(i, i+size), and add this value to arr2 with arr2.push().
+  }
+  return arr2
+  }
+console.log(chunkArrayInGroups(["a", "b", "c", "d", 1, 2, 3, 4], 3))
 
 
 
@@ -375,6 +388,6 @@ push()
 length
 spread syntax ...
 filter()
-indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present
+indexOf() = method returns the first index at which a given element can be found in the array, or -1 if it is not present.
 toString()
 */
