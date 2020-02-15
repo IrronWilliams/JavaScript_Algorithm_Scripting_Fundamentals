@@ -368,26 +368,47 @@ console.log(chunkArrayInGroups(["a", "b", "c", "d", 1, 2, 3, 4], 3))
 
 /* Summary
 
-charAt()
-.join()
+charAt() method returns the character at the specified index in a string.
+
+join()  method creates and returns a new string by concatenating all of the elements in an array
+
 split('') = separates string into array 
-slice(start, stop) = excl stop position
-splice(start, #items to delete, new items)
-repeat()
-replace('cat', 'dog')
+
+slice(start, stop) method extracts parts of a string and returns the extracted parts in a new string
+
+splice(start, #items to delete, new items) method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place
+
+repeat() builds a new string containing a specified number of copies of the string on which this function has been called
+
+replace('cat', 'dog') method searches a string for a specified value, or a regular expression, and returns a new string where the specified values are replaced.
+
 += (use to accumulate variable)
+
 + (used to concatenate)
-loops 
-functions 
-endsWith()
-reverse()
-toupperCase()
-tolowerCase()
-map(function(){ do something to each element in array   })
-push()
-length
-spread syntax ...
-filter()
+
+endsWith() method determines whether a string ends with the characters of a specified string.
+
+reverse() method reverses the order of the elements in an array
+
+toupperCase() method converts a string to uppercase letters.
+
+tolowerCase()  method converts a string to lowercase letters.
+
+map(function(){do something to each element in array}) --> The map() method creates an array by calling a specific function on each 
+element present in the parent array. It is a non-mutating method. Generally map() method is used to iterate over an array and 
+calling function on every element of array.
+
+push() method adds one or more elements to the end of an array and returns the new length of the array.
+
+length property returns the length of a string (number of characters)
+
+spread syntax ...  allows an iterable such as an array expression or string to be expanded in places where zero or more arguments 
+(for function calls) or elements (for array literals) are expected, or an object expression to be expanded in places where zero or 
+more key-value pairs (for object literals) are expected.
+
+filter() method creates a new array with all elements that pass the test implemented by the provided function.
+
 indexOf() = method returns the first index at which a given element can be found in the array, or -1 if it is not present.
-toString()
+
+toString() method converts a number to a string.
 */
