@@ -354,7 +354,7 @@ This function splits an array (first argument) into groups the length of size (s
 */
 function chunkArrayInGroups(arr, size) {
   let arr2 = [] //creates an empty array that stores pieces/'chunks' of array
-  for (let i = 0; i < arr.length; i += size) {//loop starts at 0, increments by size each time through the loop, and stops when it reaches arr.length.
+  for (let i = 0; i < arr.length; i += size) {//loop starts at 0, i increments by size each time through the loop, and stops when it reaches arr.length.
     arr2.push(arr.slice(i, i + size))  //using loop to generate numbers to use as indices to slice the array in the right locations.
                                       //inside loop, create each chunk using arr.slice(i, i+size), and add this value to arr2 with arr2.push().
   }
